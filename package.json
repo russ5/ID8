@@ -17,11 +17,8 @@
   },
   "homepage": "https://github.com/russ5/Stormer#readme",
   "dependencies": {
-    "@material-ui/core": "^3.9.1",
     "express": "^4.16.4",
     "handlebars": "^4.0.12",
-    "react": "^16.3.0",
-    "react-dom": "^16.3.0",
     "shortid": "^2.2.14",
     "socket.io": "^2.0.4"
   }
