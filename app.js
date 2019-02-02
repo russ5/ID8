@@ -4,12 +4,23 @@ var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
 var chat = io.of('/chat');
 const shortid = require('shortid');
+var url;
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/url', function(req, res){
+    url = shortid.generate();
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ url: url }));
+
+});
+
 app.get('/chat', function(req, res){
+    res.sendFile(__dirname + '/chat.html');
+});
+app.get('/'+ url, function(req, res){
     res.sendFile(__dirname + '/chat.html');
 });
 

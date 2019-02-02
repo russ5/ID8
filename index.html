@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>ID8</title>
+    <link rel="stylesheet" type="text/css" src="public/css/styles.css">
     <style>
         * {
             margin: 0; padding: 0; box-sizing: border-box;
@@ -58,19 +59,23 @@
 <body>
 <h1> Welcome to ID8! </h1>
 <div id="container">
-    <button id="button1" >Start a Room</button>
-    <button id="button2">Join a Room</button>
+    <button id="start-button">Start a Room</button>
+    <button id="join-button"><a href="/chat" style="color: white; text-decoration: none;">Join a Room</a></button>
 </div>
 <br>
-<div id="app"></div>
+<div id="unique"></div>
 <script src="public/js/index.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     $(function () {
-        $('#JoinButton').click(function() {
-            window.location.href = "/chat";
+        $('#start-button').click(function() {
+            $.get("http://localhost:3000/url", {}, function(data){
+                console.log(data.url); // requests a unique URL from server then displays to console
+                $("#unique").text(data.url);
+            })
         });
     });
+    /* We need some sort of alert after a URL is generated */
 </script>
 </body>
 </html>
