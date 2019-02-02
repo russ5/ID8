@@ -81,7 +81,7 @@
         $('#start-button').click(function() {
             $.get("http://localhost:3000/url", {}, function(data){
                 console.log(data.url); // requests a unique URL from server then displays to console
-                $("#unique").text(data.url);
+                $("#unique").text("Your personal whiteboard has been created! Go to localhost:3000/" + data.url);
             })
         });
     });
