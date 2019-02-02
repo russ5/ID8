@@ -3,12 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>ID8</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
 </head>
 <body>
 <h1> Welcome to ID8! </h1>
 <br>
 <button id="NewButton">New Room</button>
-<button id="JoinButton">Join a Room</button>
-
+<button id="JoinButton"><a href="/chat">Join a Room</a></button>
+<div id="app"></div>
+<script src="public/js/index.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+    $(function () {
+        $('#JoinButton').click(function() {
+            window.location.href = "/chat";
+        });
+    });
+</script>
 </body>
 </html>
