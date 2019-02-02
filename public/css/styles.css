@@ -3,6 +3,7 @@
 }
 body {
     font: 13px Helvetica, Arial;
+    background-color: LightSkyBlue ;
 }
 form {
     background: #000;
@@ -23,4 +24,22 @@ form button {
 #messages li { padding: 5px 10px;
 }
 #messages li:nth-child(odd) { background: #eee;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 200px;
+    font-size : 4vw
+}
+
+button {
+    background-color: DeepSkyBlue; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    display:inline-block;
+    text-align-all: center;
+    font-size: 16px;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    border-radius: 12px;
 }
