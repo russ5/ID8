@@ -1,0 +1,23 @@
+{
+  "name": "stormer",
+  "version": "1.0.0",
+  "description": "QHacks Brainstorming tool",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/russ5/Stormer.git"
+  },
+  "author": "Russell Lamey, Nick Dal Farra, Isabela Dominguez, and Daniel Forestall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/russ5/Stormer/issues"
+  },
+  "homepage": "https://github.com/russ5/Stormer#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "handlebars": "^4.0.12"
+  }
+}
