@@ -18,6 +18,7 @@
   "homepage": "https://github.com/russ5/Stormer#readme",
   "dependencies": {
     "express": "^4.16.4",
-    "handlebars": "^4.0.12"
+    "handlebars": "^4.0.12",
+    "socket.io": "^2.0.4"
   }
 }
