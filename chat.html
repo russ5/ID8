@@ -8,6 +8,9 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
           crossorigin="anonymous">
     <style>
+
+        html { overflow-y: scroll; }
+
         @import url('https://fonts.googleapis.com/css?family=Roboto:700');
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -58,14 +61,16 @@
             border: 15px;
         }
         #countdown{
-            position: absolute;
+            position: fixed;
             right: 3px;
-            bottom: 3px;
+            bottom: 4px;
             background: white;
             color: black;
             border-radius: 12px;
-            padding: 10px;
+            padding: 9px;
             white-space: normal;
+            display: flex;
+            width: 22%;
         }
     </style>
 </head>
