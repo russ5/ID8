@@ -55,7 +55,7 @@
             font-size:180%;
         }
         .card {
-            border: 15px;
+            margin: 15px;
         }
         #countdown{
             position: absolute;
@@ -70,9 +70,12 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container" style="max-width: 90%">
         <div id="messages" class="row">
-            <div class="card" style="width: 18rem;height: 18rem">
+            <div class="card" style="width: 18rem;height: 18rem;background-color: #FEE082">
+                <div class="card-header">
+
+                </div>
                 <div class="card-body">
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
@@ -98,7 +101,7 @@
                 return false;
             });
             socket.on('chat message', function(msg){
-                $('#messages').prepend('<div class="card" style="width: 18rem;height: 18rem">' +
+                $('#messages').prepend('<div class="card" style="width: 18rem;height: 18rem;background-color: #FEE082">' +
                     '<div class="card-body">' +
                         '<p class="card-text">'+msg+'</p>' +
                     '</div>' +
