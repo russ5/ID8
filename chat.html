@@ -112,11 +112,11 @@
         });
     </script>
     <script>
-        var timeleft = 120;
+        var timeLeft = 0;
         var downloadTimer = setInterval(function(){
-            document.getElementById("countdown").innerHTML = timeleft + " seconds remaining";
-            timeleft -= 1;
-            if(timeleft <= 0){
+            document.getElementById("countdown").innerHTML = timeLeft + " seconds passed";
+            timeLeft += 1;
+            if(timeLeft >= 120){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Finished"
             }
