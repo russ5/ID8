@@ -54,38 +54,47 @@
             font-family:"Reenie Beanie",arial,sans-serif;
             font-size:180%;
         }
+        .card {
+            border: 15px;
+        }
     </style>
 </head>
 <body>
-<ul id="messages"></ul>
-<form action="">
-    <label for="m"></label><input id="m" autocomplete="off" /><button>Send</button>
-</form>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"
-        integrity="sha256-WPeFPWD3PZQUDrpFnDM1N2KadNVwCfNS4cCZ78b76T8="
-        crossorigin="anonymous">
-</script>
-<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-<script>
-    $(function () {
-        var socket = io('/chat');
-        $('form').submit(function(){
-            socket.emit('chat message', $('#m').val());
-            console.log("event emitted!");
-            $('#m').val('');
-            console.log("m is " + $('#m').val());
-            return false;
+<div class="row">
+    <div id="messages" class="container">
+        <div class="card" style="width: 18rem;height: 18rem">
+            <div class="card-body">
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+        </div>
+    </div>
+    <form action="">
+        <label for="m"></label><input id="m" autocomplete="off" /><button>Send</button>
+    </form>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"
+            integrity="sha256-WPeFPWD3PZQUDrpFnDM1N2KadNVwCfNS4cCZ78b76T8="
+            crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function () {
+            var socket = io('/chat');
+            $('form').submit(function(){
+                socket.emit('chat message', $('#m').val());
+                $('#m').val('');
+                return false;
+            });
+            socket.on('chat message', function(msg){
+                $('#messages').prepend('<div class="card" style="width: 18rem;height: 18rem">' +
+                    '<div class="card-body">' +
+                        '<p class="card-text">'+msg+'</p>' +
+                    '</div>' +
+                '</div>');
+            });
         });
-        socket.on('chat message', function(msg){
-            console.log("event triggered!");
-            $('#messages').append($('<li>').text(msg));
-            console.log("append attempted!");
-            window.scrollTo(0, document.body.scrollHeight);
-        });
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
