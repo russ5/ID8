@@ -63,11 +63,11 @@
         #countdown{
             position: fixed;
             right: 3px;
-            bottom: 4px;
+            bottom: 3px;
             background: white;
             color: black;
             border-radius: 12px;
-            padding: 9px;
+            padding: 8px;
             white-space: normal;
             display: flex;
             width: 22%;
@@ -90,7 +90,7 @@
     <form action="">
         <label for="m"></label><input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <div id="countdown"></div>
+    <button onclick="start()" id="countdown"></button>
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"
             integrity="sha256-WPeFPWD3PZQUDrpFnDM1N2KadNVwCfNS4cCZ78b76T8="
@@ -116,14 +116,22 @@
     </script>
     <script>
         var timeLeft = 0;
+        var toggle = 1;
         var downloadTimer = setInterval(function(){
+            if(toggle === 1){
+                timeLeft += 1;
+            }
             document.getElementById("countdown").innerHTML = timeLeft + " seconds passed";
-            timeLeft += 1;
             if(timeLeft >= 120){
                 clearInterval(downloadTimer);
                 document.getElementById("countdown").innerHTML = "Finished"
             }
         }, 1000);
+    </script>
+    <script>
+        function start() {
+            toggle = toggle*(-1);
+        }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
