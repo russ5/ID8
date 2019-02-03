@@ -13,11 +13,61 @@
         #messages li { padding: 5px 10px; }
         #messages li:nth-child(odd) { background: #eee; }
         #messages { margin-bottom: 40px }
+
+        *{
+            margin:0;
+            padding:0;
+        }
+
+        h2,p{
+            font-size:100%;
+            font-weight:normal;
+        }
+        ul,li{
+            list-style:none;
+        }
+        ul{
+            overflow:hidden;
+            padding:3em;
+        }
+        ul li a{
+            text-decoration:none;
+            color:#000;
+            background:#ffc;
+            display:block;
+            height:10em;
+            width:10em;
+            padding:1em;
+            -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.5);
+        }
+        ul li{
+            margin:1em;
+            float:left;
+        }
+        ul li h2{
+            font-size:140%;
+            font-weight:bold;
+            padding-bottom:10px;
+        }
+        ul li p{
+            font-family:"Reenie Beanie",arial,sans-serif;
+            font-size:180%;
+        }
     </style>
 </head>
 
 <body>
-    <ul id="messages"></ul>
+<ul id="messages"></ul>
+
+<ul>
+    <li>
+        <a href="#">
+            <h2>Title #1</h2>
+            <p>Text Content #1</p>
+        </a>
+    </li>
+</ul>
+
     <form action="">
         <input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -40,5 +90,8 @@
         });
     });
 </script>
+
+
+
 </body>
 </html>
