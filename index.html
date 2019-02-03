@@ -3,93 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <title>ID8</title>
-    <link rel="stylesheet" type="text/css" src="public/css/styles.css">
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+          crossorigin="anonymous">
     <style>
         * {
-            margin: 0; padding: 0; box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css?family=Roboto:700');
+            font-family: 'Roboto', sans-serif;
         }
         body {
-            font: 13px Helvetica, Arial;
             background-color: PowderBlue ;
         }
-        form {
-            background: #000;
-            padding: 3px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-        form input {
-            border: 0; padding: 10px; width: 90%; margin-right: .5%;
-        }
-        form button {
-            width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;
-        }
-        #messages
-        { list-style-type: none; margin: 0; padding: 0;
-        }
-        #messages li { padding: 5px 10px;
-        }
-        #messages li:nth-child(odd) { background: #eee;
-        }
+        .vertical-center {
+            min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+            min-height: 100vh; /* These two lines are counted as one :-)       */
 
-        h1 {
-            text-align: center;
-            margin-top: 220px;
-            font-size : 4vw
+            display: flex;
+            align-items: center;
         }
-
-        #container {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        button {
-            background-color: DeepSkyBlue;
-            border: none;
-            color: white;
-            padding: 15px 32px;
-            display:inline-block;
-            font-size: 16px;
-            box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-            border-radius: 12px;
-            cursor: pointer;
-        }
-
-        #button1 {
-            margin-right: 15px;
-        }
-
-        #button2 {
-            margin-left: 15px;
-        }
-
     </style>
+    <!--<style>-->
+        <!--* {-->
+            <!--margin: 0; padding: 0; box-sizing: border-box;-->
+        <!--}-->
+        <!--body {-->
+            <!--font: 13px Helvetica, Arial;-->
+            <!--background-color: PowderBlue ;-->
+        <!--}-->
+        <!--form {-->
+            <!--background: #000;-->
+            <!--padding: 3px;-->
+            <!--position: fixed;-->
+            <!--bottom: 0;-->
+            <!--width: 100%;-->
+        <!--}-->
+        <!--form input {-->
+            <!--border: 0; padding: 10px; width: 90%; margin-right: .5%;-->
+        <!--}-->
+        <!--form button {-->
+            <!--width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;-->
+        <!--}-->
+        <!--#messages-->
+        <!--{ list-style-type: none; margin: 0; padding: 0;-->
+        <!--}-->
+        <!--#messages li { padding: 5px 10px;-->
+        <!--}-->
+        <!--#messages li:nth-child(odd) { background: #eee;-->
+        <!--}-->
+
+        <!--h1 {-->
+            <!--text-align: center;-->
+            <!--margin-top: 220px;-->
+            <!--font-size : 4vw-->
+        <!--}-->
+
+        <!--#container {-->
+            <!--text-align: center;-->
+            <!--margin-top: 20px;-->
+        <!--}-->
+
+        <!--button {-->
+            <!--background-color: DeepSkyBlue;-->
+            <!--border: none;-->
+            <!--color: white;-->
+            <!--padding: 15px 32px;-->
+            <!--display:inline-block;-->
+            <!--font-size: 16px;-->
+            <!--box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);-->
+            <!--border-radius: 12px;-->
+            <!--cursor: pointer;-->
+        <!--}-->
+
+        <!--#button1 {-->
+            <!--margin-right: 15px;-->
+        <!--}-->
+
+        <!--#button2 {-->
+            <!--margin-left: 15px;-->
+        <!--}-->
+    <!--</style>-->
 
 </head>
 <body>
-<h1> Welcome to ID8! </h1>
-<div id="container">
-    <button id="start-button">Start a Room</button>
-    <button id="join-button"><a href="/chat" style="color: white; text-decoration: none;">Join a Room</a></button>
+<div style="padding-top: 10%"></div>
+<div class="text-center">
+    <h1 class="text-center" style="font-family: 'Roboto', sans-serif; font-size: 100px"> Welcome to ID8</h1>
+</div>
+<div class="text-center">
+    <h2 class="text-center" style="font-family: 'Roboto', sans-serif;">Create a whiteboard to get started!</h2>
+</div>
+<div id="container" class="text-center" style="padding-top: 15px">
+    <a data-toggle="collapse" href="#collapseExample" id="start-button" role="button" class="btn btn-primary btn-lg">Create a Room</a>
+</div>
+<div class="container" style="padding-top: 10px">
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body text-center">
+            <h4 id="unique">You shouldn't see this!</h4>
+        </div>
+    </div>
 </div>
 <br>
-<div id="unique"></div>
-<script src="public/js/index.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
     $(function () {
-        $('#start-button').click(function() {
+        $('#collapseExample').on('show.bs.collapse', function() {
             $.get("http://localhost:3000/url", {}, function(data){
                 console.log(data.url); // requests a unique URL from server then displays to console
-                $("#unique").text("Your personal whiteboard has been created! Go to localhost:3000/" + data.url);
+                $("#unique").text("Your personal whiteboard has been created! Go to localhost:3000/" + data.url).html();
             })
         });
     });
-    /* We need some sort of alert after a URL is generated */
 </script>
-
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
 </html>
