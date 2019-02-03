@@ -2,11 +2,21 @@ var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var port = process.env.PORT || 3000;
-var chat = io.of('/chat');
+var chat = io.of('Stormer/chat');
 const shortid = require('shortid');
+var url;
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
+});
+
+app.get('/url', function(req, res){
+    url = shortid.generate();
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ url: url }));
+    app.get('/'+ url, function(req, res){
+        res.sendFile(__dirname + '/chat.html');
+    });
 });
 
 app.get('/chat', function(req, res){
